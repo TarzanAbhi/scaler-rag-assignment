@@ -1,0 +1,16 @@
+Eligibility Criteria - Scaler Academy
+
+1. Educational Qualification: Bachelor's degree in any discipline.
+
+2. Work Experience: Minimum 1 year of professional software development 
+   experience required.
+
+3. Programming Knowledge: Basic knowledge of at least one programming 
+   language (Python, Java, C++, or JavaScript).
+
+4. Age: No age limit for applying to Scaler Academy.
+
+5. Selection Process: Applicants must clear a technical screening test 
+   and an interview before enrollment.
+
+6. Students in final year of graduation are also eligible to apply.

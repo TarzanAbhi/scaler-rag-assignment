@@ -1,0 +1,19 @@
+Frequently Asked Questions - Scaler Academy
+
+Q: What is the duration of the program?
+A: The Scaler Academy program is 9 months long, conducted on weekends.
+
+Q: What programming languages are taught?
+A: We teach Python, Java, C++, Data Structures, Algorithms, and System Design.
+
+Q: Is there a placement guarantee?
+A: Yes, Scaler offers a placement guarantee. If you don't get placed within 
+6 months of graduation, we refund your full fee.
+
+Q: What is the minimum salary offered?
+A: The average salary offered to Scaler graduates is 18 LPA, with top 
+packages going up to 50 LPA.
+
+Q: Who can apply to Scaler?
+A: Working professionals with at least 1 year of experience in software 
+development can apply.

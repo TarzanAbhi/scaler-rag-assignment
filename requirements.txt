@@ -1,0 +1,8 @@
+openai
+anthropic
+pypdf2
+python-docx
+chromadb
+sentence-transformers
+tiktoken
+rich

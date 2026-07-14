@@ -1,0 +1,72 @@
+[
+  {
+    "id": "tc_001",
+    "query": "What is the refund policy?",
+    "expected_keywords": ["refund", "days", "policy"],
+    "expected_source_contains": "refund",
+    "is_no_match": false
+  },
+  {
+    "id": "tc_002",
+    "query": "What are the eligibility criteria for the program?",
+    "expected_keywords": ["eligible", "experience", "degree"],
+    "expected_source_contains": "eligibility",
+    "is_no_match": false
+  },
+  {
+    "id": "tc_003",
+    "query": "What is the placement guarantee?",
+    "expected_keywords": ["placement", "guarantee", "job"],
+    "expected_source_contains": "placement",
+    "is_no_match": false
+  },
+  {
+    "id": "tc_004",
+    "query": "How much does the course cost?",
+    "expected_keywords": ["INR", "payment", "fee"],
+    "expected_source_contains": "pricing",
+    "is_no_match": false
+  },
+  {
+    "id": "tc_005",
+    "query": "Is there an EMI option available?",
+    "expected_keywords": ["EMI", "month", "installment"],
+    "expected_source_contains": "pricing",
+    "is_no_match": false
+  },
+  {
+    "id": "tc_006",
+    "query": "Can I get a refund after 30 days?",
+    "expected_keywords": ["30", "refund", "no refund"],
+    "expected_source_contains": "refund",
+    "is_no_match": false
+  },
+  {
+    "id": "tc_007",
+    "query": "What programming languages are taught?",
+    "expected_keywords": ["python", "java", "language"],
+    "expected_source_contains": "faq",
+    "is_no_match": false
+  },
+  {
+    "id": "tc_008",
+    "query": "What happens if I don't get placed after the program?",
+    "expected_keywords": ["refund", "placed", "guarantee"],
+    "expected_source_contains": "placement",
+    "is_no_match": false
+  },
+  {
+    "id": "tc_009",
+    "query": "What is the minimum work experience required?",
+    "expected_keywords": ["experience", "year", "professional"],
+    "expected_source_contains": "eligibility",
+    "is_no_match": false
+  },
+  {
+    "id": "tc_010",
+    "query": "Who is the president of Mars?",
+    "expected_keywords": ["don't have", "not found", "no information", "no relevant"],
+    "expected_source_contains": null,
+    "is_no_match": true
+  }
+]

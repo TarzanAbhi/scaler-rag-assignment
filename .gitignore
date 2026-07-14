@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment variables
+.env
+
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# ChromaDB / Vector DB
+index/
+
+# Logs
+*.log
+traces.jsonl
+
+# Evaluation outputs
+eval/results.json
+
+# Python build
+build/
+dist/
+*.egg-info/

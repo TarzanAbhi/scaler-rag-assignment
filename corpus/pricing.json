@@ -1,0 +1,28 @@
+[
+  {
+    "plan": "Full Payment",
+    "price": "INR 3,99,000",
+    "discount": "10% discount on full upfront payment",
+    "emi": false
+  },
+  {
+    "plan": "EMI - 12 months",
+    "price": "INR 36,500 per month",
+    "total": "INR 4,38,000",
+    "emi": true,
+    "down_payment": "INR 50,000"
+  },
+  {
+    "plan": "EMI - 24 months", 
+    "price": "INR 19,500 per month",
+    "total": "INR 4,68,000",
+    "emi": true,
+    "down_payment": "INR 25,000"
+  },
+  {
+    "plan": "Income Share Agreement",
+    "price": "15% of salary for 36 months",
+    "minimum_salary_trigger": "INR 5,00,000 per annum",
+    "emi": false
+  }
+]
