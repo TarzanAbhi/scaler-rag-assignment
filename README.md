@@ -2,21 +2,21 @@
 
 > A Retrieval-Augmented Generation (RAG) system for Scaler's learner support knowledge base.
 
-Builds a semantic search index over PDFs, text files, and structured documents to provide grounded, source-backed answers using Gemini.
+Builds a semantic search index over PDFs, text files, and structured documents to provide grounded, source-backed answers using Anthropic
 
 ---
 
 ## Features
 
 - Multi-format document ingestion (PDF, TXT, JSON, YAML)
-- Intelligent document chunking with overlap
-- Semantic search using Gemini Embeddings
+- Local semantic embeddings using `all-MiniLM-L6-v2`
+- Intelligent chunking with overlap
 - Persistent ChromaDB vector store
-- Grounded answer generation with Gemini
-- Source citations for retrieved context
-- Query tracing and observability
+- Grounded answer generation using Anthropic Claude
+- Source-backed responses with citations
+- Similarity thresholding to prevent hallucinations
+- Structured query tracing
 - Automated evaluation pipeline
-- Hallucination prevention using similarity thresholding
 
 ---
 
@@ -34,7 +34,7 @@ source .venv/bin/activate
 # Install dependencies
 pip install -r requirements.txt
 
-# Set Gemini API key
+# Set API key
 export SCALER_LLM_API_KEY="your_api_key"
 
 # Add documents to corpus/
@@ -71,7 +71,7 @@ scaler-rag-assignment/
 │   ├── config.py            # Configuration constants
 │   ├── ingest.py            # Parse → Chunk → Embed → Store
 │   ├── retrieve.py          # Semantic retrieval
-│   ├── generate.py          # Prompt construction + Gemini
+│   ├── generate.py          # Prompt construction + Anthropic
 │   ├── trace.py             # Structured tracing
 │   └── main.py              # CLI entry point
 │
@@ -100,7 +100,7 @@ scaler-rag-assignment/
        Chunk (400 tokens, 80-token overlap)
                         │
                         ▼
-       Embed (gemini-embedding-001)
+      Embed (all-MiniLM-L6-v2)
                         │
                         ▼
       ChromaDB Vector Store (Cosine Similarity)
@@ -112,13 +112,11 @@ scaler-rag-assignment/
         Similarity Threshold (< 0.3 → No Match)
                         │
                         ▼
- Generate (Gemini 2.0 Flash, Temperature = 0)
+ Generate (Anthropic Claude, Temperature = 0)
                         │
                         ▼
         Grounded Answer + Source Citation + Trace
 ```
-
----
 
 ## Evaluation
 
@@ -201,7 +199,7 @@ The system gracefully handles:
 ## Technology Stack
 
 - **Python**
-- **Google Gemini API**
+- **Anthropic Claude API**
 - **ChromaDB**
 - **PyPDF2**
 - **tiktoken**
@@ -219,9 +217,9 @@ Given additional time, the following enhancements would make the system producti
 - PostgreSQL + pgvector / Pinecone / Qdrant
 - Metadata-aware retrieval
 - Semantic chunking
-- Incremental document indexing
+- Incremental indexing
 - Redis caching
 - Kafka-based asynchronous ingestion
-- Langfuse & OpenTelemetry observability
-- Streaming LLM responses
+- Langfuse / OpenTelemetry observability
+- Streaming responses
 - Role-based access control
