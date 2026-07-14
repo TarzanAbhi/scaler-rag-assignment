@@ -1,6 +1,6 @@
 # Scaler Sage 🌿
 
-> A production-inspired Retrieval-Augmented Generation (RAG) system for Scaler's learner support knowledge base.
+> A Retrieval-Augmented Generation (RAG) system for Scaler's learner support knowledge base.
 
 Builds a semantic search index over PDFs, text files, and structured documents to provide grounded, source-backed answers using Gemini.
 
