@@ -17,35 +17,48 @@ answer in seconds — without a support agent in the loop.
 
 ## System Architecture
 
-The pipeline has two phases: **ingestion** (runs once) and **query** (runs on demand).
-INGESTION
-─────────
-corpus/ (PDFs, TXT, JSON)
-↓
-Parse — extract raw text per document type
-↓
-Chunk — split into 400-token segments with 80-token overlap
-↓
-Embed — convert each chunk to a vector (all-MiniLM-L6-v2)
-↓
-Store — persist vectors + metadata to ChromaDB
-QUERY
-─────
-User question
-↓
-Embed query — same model as ingestion
-↓
-Retrieve — cosine similarity search, top-5 chunks
-↓
-Threshold gate — similarity < 0.3 → return no-match, skip LLM
-↓
-Generate — GPT-4o-mini with context-only system prompt
-↓
-Trace — emit structured log to traces.jsonl
-↓
-Answer + source citation → user
+The system consists of two independent phases:
 
----
+- **Ingestion Pipeline** – Runs once whenever new documents are added.
+- **Query Pipeline** – Executes for every user query.
+
+### Ingestion Pipeline
+
+```mermaid
+flowchart TD
+    A["Corpus (PDF / TXT / JSON / YAML)"]
+    B["Parse Documents"]
+    C["Chunk Documents<br/>400 tokens • 80 overlap"]
+    D["Generate Embeddings<br/>all-MiniLM-L6-v2"]
+    E["Store in ChromaDB<br/>Vectors + Metadata"]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
+### Query Pipeline
+
+```mermaid
+flowchart TD
+    A["User Question"]
+    B["Generate Query Embedding<br/>all-MiniLM-L6-v2"]
+    C["Cosine Similarity Search<br/>Top-5 Chunks"]
+    D{"Similarity ≥ 0.3?"}
+    E["Return No Match"]
+    F["Generate Answer<br/>Anthropic Claude"]
+    G["Emit Trace<br/>traces.jsonl"]
+    H["Grounded Answer<br/>+ Source Citation"]
+
+    A --> B
+    B --> C
+    C --> D
+    D -- No --> E
+    D -- Yes --> F
+    F --> G
+    G --> H
+```
 
 ## Chunking Strategy
 
